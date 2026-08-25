@@ -1,4 +1,4 @@
-from pprint import pprint
+#from pprint import pprint
 num_list = {} 
 print("Welcome to Finance Tracker") 
 category_dict = {}
@@ -25,11 +25,12 @@ def categories_each():
         else:
             category_dict[cat] = exp
 def printing_category():
-    # print("Expense Summary")
-    # print("_______________")
-    # for i,j in category_dict:
-    #     print(num_list[i][j])
-    pprint(category_dict, indent=4)
+    count = 0
+    print("Expense Summary")
+    print("_______________")
+    for i,j in category_dict.items(): #     #pprint(category_dict, indent=4)
+        count += 1
+        print(f"{count}, {i} - {j}")
 
 def add_the_expense(num_list):
     total = 0
@@ -46,24 +47,31 @@ while(True):
     else: 
         #add_the_expense(num_list) 
         #print(num_list) 
-        printing_category()
         categories_each()
+        printing_category()
         break; 
 print("Thank you for using this") 
  
 # the output 
-# Welcome to Finance Tracker 
-# do you want to continueyes 
-# Enter the serial number1 
-# Enter the expense12 
-# Enter the categoryfood 
-# Enter the date13/8 
-# do you want to continueyes 
+# Welcome to Finance Tracker
+# do you want to continueyes
+# Enter the serial number1
+# Enter the expense12
+# Enter the categoryfood
+# Enter the date12-9
+# do you want to continueyes
 # Enter the serial number2 
-# Enter the expense30 
-# Enter the categoryfood 
-# Enter the date14/8 
-# do you want to continueno 
-# The total expense is  42 
-# {1: {'Expense': 12, 'Category': 'food', 'Date': '13/8'}, 2: {'Expense': 30, 'Category': 'food', 'Date': '14/8'}} 
+# Enter the expense12
+# Enter the categoryfood
+# Enter the date12-8
+# do you want to continueyes
+# Enter the serial number3   
+# Enter the expense1000
+# Enter the categorycloths
+# Enter the date5-8
+# do you want to continueno
+# Expense Summary
+# _______________
+# 1, food - 24
+# 2, cloths - 1000
 # Thank you for using this
