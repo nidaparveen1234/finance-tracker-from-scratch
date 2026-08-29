@@ -56,7 +56,7 @@ def ask_user_categ():
     for i in num_list:
         cat = num_list[i]["Category"]
 
-        if ask_user in cat:
+        if ask_user == cat:
             cat = num_list[i]["Category"]
             exp = num_list[i]["Expense"]
             dat = num_list[i]["Date"]
