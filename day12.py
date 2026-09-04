@@ -4,7 +4,7 @@ num_list = {}
 def load_data(num_list):
     with open("data.json","r")as file:
         loaded_dict = json.load(file)
-        print(loaded_dict)
+        return loaded_dict
         
 print("Welcome to Finance Tracker") 
 load_data(num_list)
@@ -73,25 +73,28 @@ def add_the_expense(num_list):
 
 #             print(f"{i}. Expense:{exp}\n   Date:{dat}")
 
+
 def json_saving(num_list):
    with open("data.json","w")as file:
       json.dump(num_list, file, indent=4)    
 
+loaded_dict = num_list
 while(True): 
      
     choices = input("do you want to continue") 
     if choices == "yes":
          
         add_item_to_dict()
-        json_saving(num_list)
+        
         
     else: 
         #total = add_the_expense(num_list)  
         add_the_expense(num_list)
+        json_saving(num_list)
         # categories_each()
         #ask_user_categ()
         #printing_category(total)
-        load_data(num_list)
+        
         #printing_total_expense(num_list)
         break; 
 print("Thank you for using this") 
