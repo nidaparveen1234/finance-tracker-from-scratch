@@ -76,7 +76,17 @@ def ask_user_categ():
 
 def edit_option():
     choice = input("Enter serial number to edit: ")
-    for items in nu
+    for items in num_list:
+        ser = num_list[items]
+
+        if ser == choice:
+            option = input("what do you want to edit\n enter 1 to edit category \n enter 2 to edit expense \n enter 3 to edit date ")
+            match option:
+                case"1":
+                    user_edit = input("enter the category")
+                    for choice in num_list:
+                        user_edit = num_list[i]["Category"]
+        print(num_list)
 
 def json_saving(num_list):
    with open("data.json","w")as file:
