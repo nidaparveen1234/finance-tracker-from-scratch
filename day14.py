@@ -75,18 +75,17 @@ def ask_user_categ():
             print(f"{i}. Expense:{exp}\n   Date:{dat}")
 
 def edit_option():
-    choice = input("Enter serial number to edit: ")
-    for items in num_list:
-        ser = num_list[items]
-
-        if ser == choice:
-            option = input("what do you want to edit\n enter 1 to edit category \n enter 2 to edit expense \n enter 3 to edit date ")
-            match option:
-                case"1":
-                    user_edit = input("enter the category")
-                    for choice in num_list:
-                        user_edit = num_list[i]["Category"]
-        print(num_list)
+    choice = int(input("Enter serial number to edit: "))
+    if choice in num_list:
+         option = input("what do you want to edit\n enter 1 to edit category \n enter 2 to edit expense \n enter 3 to edit date ")
+         match option:
+            case"1":
+                 user_edit = input("enter the category to edit")
+                 num_list[choice]["Category"]=user_edit
+                 #get_value = num_list[choice]["Category"]
+                 #final_category = num_list[choice][user_edit
+                 print(num_list)
+                
 
 def json_saving(num_list):
    with open("data.json","w")as file:
@@ -95,7 +94,7 @@ def json_saving(num_list):
 
 while(True): 
      
-    choices = input("Menu \ndo you want to continue : say yes  \nif you want to edit :say 1 \n if you want to finishes or close:say 2 ")
+    choices = input("Menu \ndo you want to continue : say yes  \nif you want to edit :say 1 \n if you want to finishes or close:say 2 \n and enter exit to finish")
     match choices:
         case"yes": 
             add_item_to_dict()
@@ -120,3 +119,5 @@ while(True):
 
 
 
+# output
+# 1: {'Expense': 20, 'Category': 'food', 'Date': '23-3'}}
