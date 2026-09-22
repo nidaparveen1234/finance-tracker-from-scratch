@@ -1,4 +1,3 @@
-
 import json
 num_list = {} 
 def load_data(num_list):
@@ -86,7 +85,7 @@ def edit_option():
                  #final_category = num_list[choice][user_edit
                  print(num_list)
             case"2":
-                 user_edit = input("enter the expense")
+                 user_edit = int(input("enter the expense"))
                  num_list[choice]["Expense"]=user_edit
                  print (num_list)
             case"3":
@@ -97,6 +96,8 @@ def edit_option():
 def delete_fn():
     deleted_value = int(input("enter the serial number to delete"))
     num_list.pop(deleted_value)
+    if deleted_value not in num_list:
+        print("Serial number not found")
     print(num_list)              
 
 def json_saving(num_list):
@@ -107,7 +108,7 @@ def json_saving(num_list):
 while(True): 
      
     choices = input("Menu\n-------\n1.Enter the Finances\n2.Edit Finances\n3.Delete Finances" \
-    "\n4.Category\n5.Sum of Expense\n6.Get the Category\nExit.To Exit and Save")
+    "\n4.Category\n5.Sum of Expense\n6.Get the Category\nExit.To Exit and Save \nEnter :")
     match choices:
         case"1": 
             add_item_to_dict()
