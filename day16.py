@@ -23,21 +23,20 @@ def add_item_to_dict():
     }
 
 
-# def categories_each():
-#     for items in num_list:
-#         cat = num_list[items]["Category"]
-#         exp = num_list[items]["Expense"] 
+def categories_each():
+    for items in num_list:
+        cat = num_list[items]["Category"]
+        exp = num_list[items]["Expense"] 
 
-#         if cat in category_dict:
-#             category_dict[cat] += exp
-#         else:
-#             category_dict[cat] = exp
+        if cat in category_dict:
+            category_dict[cat] += exp
+        else:
+            category_dict[cat] = exp
 
-def printing_category(total):
+def how_many_category():
     count = 0
     print("Expense Summary")
     print("_______________")
-    print("the total of expense = ",total)
     for i,j in category_dict.items(): #     #pprint(category_dict, indent=4)
         count += 1
         print(f"{count}, {i} - {j}")
@@ -47,7 +46,7 @@ def add_the_expense(num_list):
     for items in num_list:
         single_expense = num_list[items]["Expense"]
         total += single_expense
-    return total
+    print(total)
 
 def printing_total_expense(num_list):
     print(f"All Expense\n_____________")
@@ -93,12 +92,13 @@ def edit_option():
                  num_list[choice]["Date"]=user_edit
                  print (num_list)
 
-def delete_fn():
+def delete_fn(): 
     deleted_value = int(input("enter the serial number to delete"))
-    num_list.pop(deleted_value)
-    if deleted_value not in num_list:
+    if deleted_value in num_list:
+            num_list.pop(deleted_value)
+    else:
         print("Serial number not found")
-    print(num_list)              
+        print(num_list)              
 
 def json_saving(num_list):
    with open("data.json","w")as file:
@@ -108,7 +108,7 @@ def json_saving(num_list):
 while(True): 
      
     choices = input("Menu\n-------\n1.Enter the Finances\n2.Edit Finances\n3.Delete Finances" \
-    "\n4.Category\n5.Sum of Expense\n6.Get the Category\nExit.To Exit and Save \nEnter :")
+    "\n4.Category\n5.Sum of Expense\n6.how many Category\n 7. the List of Expenses \nExit.To Exit and Save")
     match choices:
         case"1": 
             add_item_to_dict()
@@ -120,11 +120,12 @@ while(True):
             ask_user_categ()
         case"5":
             add_the_expense(num_list)
-            printing_total_expense(num_list)
+            
         case"6":
-            total = add_the_expense(num_list)
-            printing_category(total) 
-            print(num_list) 
+            categories_each()
+            how_many_category() 
+        case"7":
+            printing_total_expense(num_list)
         case"exit":
             num_list.update(num_list)
             json_saving(num_list)
