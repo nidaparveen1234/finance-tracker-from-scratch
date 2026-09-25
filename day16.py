@@ -24,6 +24,7 @@ def add_item_to_dict():
 
 
 def categories_each():
+    category_dict={}
     for items in num_list:
         cat = num_list[items]["Category"]
         exp = num_list[items]["Expense"] 
@@ -32,12 +33,13 @@ def categories_each():
             category_dict[cat] += exp
         else:
             category_dict[cat] = exp
+        return category_dict
 
-def how_many_category():
+def how_many_category(cat):
     count = 0
     print("Expense Summary")
     print("_______________")
-    for i,j in category_dict.items(): #     #pprint(category_dict, indent=4)
+    for i,j in cat.items(): #     #pprint(category_dict, indent=4)
         count += 1
         print(f"{count}, {i} - {j}")
 
@@ -122,8 +124,8 @@ while(True):
             add_the_expense(num_list)
             
         case"6":
-            categories_each()
-            how_many_category() 
+            cat_total=categories_each()
+            how_many_category(cat_total) 
         case"7":
             printing_total_expense(num_list)
         case"exit":
