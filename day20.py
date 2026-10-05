@@ -89,7 +89,7 @@ def edit_option():
         choice = int(input("Enter serial number to edit: "))
     except ValueError:
         print("it is not a number !!!!")
-        return 0
+        return 
     if choice in num_list:
          option = input("what do you want to edit-- enter 1 to edit category -- enter 2 to edit expense -- enter 3 to edit date ")
          match option:
@@ -100,7 +100,14 @@ def edit_option():
                  #final_category = num_list[choice][user_edit
                  print(num_list)
             case"2":
-                 user_edit = int(input("enter the expense"))
+                 try:
+                     user_edit = int(input("enter the expense"))
+                 except ValueError:
+                         print("it is not a number !!!!")
+                         return 
+                 if user_edit == 0:
+                         print("zero cannot be added")
+                         return 0
                  num_list[choice]["Expense"]=user_edit
                  print (num_list)
             case"3":
@@ -108,7 +115,7 @@ def edit_option():
                  num_list[choice]["Date"]=user_edit
                  print (num_list)
     else:
-        print("it doesn't exit")
+        print("it doesn't exist")
 
 def delete_fn(): 
     deleted_value = int(input("enter the serial number to delete"))
@@ -150,3 +157,33 @@ while(True):
             print("Thank you for using this") 
             break;
 
+
+# # # output
+# Welcome to Finance Tracker
+# Menu
+# -------
+# 1.Enter the Finances
+# 2.Edit Finances
+# 3.Delete Finances
+# 4.Category
+# 5.Sum of Expense
+# 6.how many Category
+#  7. the List of Expenses 
+# Exit.To Exit and Save1
+# Enter the serial number1
+# Enter the expense0
+# zero cannot be added
+# Menu
+# -------
+# 1.Enter the Finances
+# 2.Edit Finances
+# 3.Delete Finances
+# 4.Category
+# 5.Sum of Expense
+# 6.how many Category
+#  7. the List of Expenses 
+# Exit.To Exit and Save1
+# Enter the serial number2
+# Enter the expenseabc
+# this is not a valid number !!!
+# Menu
