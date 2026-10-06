@@ -1,9 +1,10 @@
 import json
 num_list = {} 
 def load_data(num_list):
-    with open("data.json","r")as file:
+    with open("data.json", "r") as file:
         loaded_dict = json.load(file)
-        return loaded_dict        
+
+        return {int(key): value for key, value in loaded_dict.items()}       
 print("Welcome to Finance Tracker") 
 num_list = load_data(num_list)
 
@@ -11,7 +12,12 @@ category_dict = {}
 
 
 def add_item_to_dict():
-    serial_no = int(input("Enter the serial number"))
+    try:
+        serial_no = int(input("Enter the serial number"))
+    except ValueError:
+        print("this is not a valid number !!!")
+        return 
+    
 
     try:
         expense = abs(int(input("Enter the expense")))
@@ -101,7 +107,7 @@ def edit_option():
                  print(num_list)
             case"2":
                  try:
-                     user_edit = int(input("enter the expense"))
+                     user_edit = abs(int(input("enter the expense")))
                  except ValueError:
                          print("it is not a number !!!!")
                          return 
@@ -114,11 +120,18 @@ def edit_option():
                  user_edit = input("enter the Date")
                  num_list[choice]["Date"]=user_edit
                  print (num_list)
+            case _:  # <--- This is your DEFAULT case
+                 print("it doesnt exit ")
+    
     else:
         print("it doesn't exist")
 
 def delete_fn(): 
-    deleted_value = int(input("enter the serial number to delete"))
+    try:
+        deleted_value = int(input("enter the serial number to delete"))
+    except ValueError:
+        print("it is not a number !!!!")
+        return 
     if deleted_value in num_list:
             num_list.pop(deleted_value)
     else:
@@ -156,34 +169,3 @@ while(True):
             json_saving(num_list)
             print("Thank you for using this") 
             break;
-
-
-# # # output
-# Welcome to Finance Tracker
-# Menu
-# -------
-# 1.Enter the Finances
-# 2.Edit Finances
-# 3.Delete Finances
-# 4.Category
-# 5.Sum of Expense
-# 6.how many Category
-#  7. the List of Expenses 
-# Exit.To Exit and Save1
-# Enter the serial number1
-# Enter the expense0
-# zero cannot be added
-# Menu
-# -------
-# 1.Enter the Finances
-# 2.Edit Finances
-# 3.Delete Finances
-# 4.Category
-# 5.Sum of Expense
-# 6.how many Category
-#  7. the List of Expenses 
-# Exit.To Exit and Save1
-# Enter the serial number2
-# Enter the expenseabc
-# this is not a valid number !!!
-# Menu
