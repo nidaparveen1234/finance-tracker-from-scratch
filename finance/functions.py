@@ -1,4 +1,4 @@
-def categories_each():
+def categories_each(num_list):
     category_dict={}
     for items in num_list:
         cat = num_list[items]["Category"]
@@ -37,7 +37,7 @@ def printing_total_expense(num_list):
         
         print(f"{ser}. Expense:{exp}\n  Category:{cat}\n  Date:{dt}")
 
-def ask_user_categ():
+def ask_user_categ(num_list):
     ask_user = input("Enter the category to search")
     print(f"Expenses in {ask_user} \n ------------------")
     for i in num_list:
@@ -51,7 +51,7 @@ def ask_user_categ():
             print(f"{i}. Expense:{exp}\n   Date:{dat}")
 
 
-def add_item_to_dict():
+def add_item_to_dict(num_list):
     try:
         serial_no = int(input("Enter the serial number"))
     except ValueError:
@@ -77,7 +77,7 @@ def add_item_to_dict():
             "Date": date
             }
 
-def edit_option():
+def edit_option(num_list):
     print(num_list)
     try:
         choice = int(input("Enter serial number to edit: "))
@@ -115,7 +115,7 @@ def edit_option():
         print("it doesn't exist")
 
 
-def delete_fn(): 
+def delete_fn(num_list): 
     try:
         deleted_value = int(input("enter the serial number to delete"))
     except ValueError:
