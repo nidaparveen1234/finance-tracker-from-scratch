@@ -1,7 +1,12 @@
 {
-    "2": {
+    "1": {
         "Expense": 20,
         "Category": "food",
-        "Date": "1-dh"
+        "Date": "12-3"
+    },
+    "2": {
+        "Expense": 30,
+        "Category": "food",
+        "Date": "12=3"
     }
 }
