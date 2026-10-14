@@ -24,7 +24,7 @@ def add_the_expense(num_list):
     for items in num_list:
         single_expense = num_list[items]["Expense"]
         total += single_expense
-    print(total)
+    return total
 
 
 def printing_total_expense(num_list):

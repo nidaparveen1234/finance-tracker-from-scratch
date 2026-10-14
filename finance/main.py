@@ -40,7 +40,7 @@ while(True):
         case"4":
             ask_user_categ(num_list)
         case"5":
-            add_the_expense(num_list)
+            total = add_the_expense(num_list)
             
         case"6":
             cat_total=categories_each(num_list)
