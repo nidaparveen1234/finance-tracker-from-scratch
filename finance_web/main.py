@@ -30,13 +30,21 @@ class Expenses(BaseModel):
 
 @app.post("/expenses")
 def add_expense(expense: Expenses):
-     with open("../finance/data.json", "r") as file:
+    with open("../finance/data.json", "r") as file:
         loaded_dict = json.load(file)
-        serial = len(loaded_dict) + 1
+
+        serial = str(len(loaded_dict) + 1)
+
         loaded_dict[serial] = {
-             "Expense": expense.Expense,
-             "Category": expense.Category,
-             "Date": expense.Date
-             }
-     with open("../finance/data.json", "w") as file:
-          json.dump()
+            "Expense": expense.Expense,
+            "Category": expense.Category,
+            "Date": expense.Date
+        }
+
+    with open("../finance/data.json", "w") as file:
+        json.dump(loaded_dict, file, indent=4)
+
+    return {
+        "message": "Expense added successfully",
+        "serial_no": serial
+    }

@@ -1,12 +1,12 @@
 {
     "1": {
-        "Expense": 20,
-        "Category": "food",
-        "Date": "12-3"
+        "Expense": 100,
+        "Category": "Food",
+        "Date": "2026-11-10"
     },
     "2": {
-        "Expense": 30,
-        "Category": "food",
-        "Date": "12=3"
+        "Expense": 200,
+        "Category": "Travel",
+        "Date": "2026-11-11"
     }
 }
